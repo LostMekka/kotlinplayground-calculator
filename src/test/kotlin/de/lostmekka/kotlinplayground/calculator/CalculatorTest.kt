@@ -24,5 +24,17 @@ object CalculatorTest : Spek({
             "+1+2-4+7" shouldBe 6
             "-4+1+2+7" shouldBe 6
         }
+
+        testCalculator("multiplication and division only") {
+            "4*4" shouldBe 16
+            "2*3.5" shouldBe 7
+            "9/2" shouldBe 4.5
+            "2*2/3*3/4" shouldBe 1
+        }
+
+        testCalculator("all 4 basic operations") {
+            "-2.5*4 - 2 + 100/2/5 + 44" shouldBe 42
+            // TODO: don't be lazy and add more test cases
+        }
     }
 })
