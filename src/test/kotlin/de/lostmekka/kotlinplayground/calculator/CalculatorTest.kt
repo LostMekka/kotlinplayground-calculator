@@ -17,12 +17,12 @@ object CalculatorTest : Spek({
         }
 
         testCalculator("addition and subtraction only") {
-            "1+2" shouldBe 3.0
-            "1-2" shouldBe -1.0
-            "1+1+1" shouldBe 3.0
-            "1+2-4+7" shouldBe 6.0
-            "+1+2-4+7" shouldBe 6.0
-            "-4+1+2+7" shouldBe 6.0
+            "1+2" shouldBe 3
+            "1-2" shouldBe -1
+            "1+1+1" shouldBe 3
+            "1+2-4+7" shouldBe 6
+            "+1+2-4+7" shouldBe 6
+            "-4+1+2+7" shouldBe 6
         }
     }
 })

@@ -25,11 +25,13 @@ internal class CalculatorTestBody(
     private val specBody: SpecBody,
     private val calculator: ICalculator
 ) {
-    internal infix fun String.shouldBe(expectedResult: Double) {
-        specBody.on("putting in '$this'") {
-            val answer = calculator.evaluate(this@shouldBe)
+    internal infix fun String.shouldBe(expectedResult: Number) {
+        val input = this
+        val expected = expectedResult.toDouble()
+        specBody.on("putting in '$input'") {
+            val answer = calculator.evaluate(input)
             it("should output the number $expectedResult") {
-                assertEquals(expectedResult, answer)
+                assertEquals(expected, answer)
             }
         }
     }
