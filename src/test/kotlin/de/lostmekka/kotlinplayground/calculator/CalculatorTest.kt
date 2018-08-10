@@ -1,38 +1,28 @@
 package de.lostmekka.kotlinplayground.calculator
 
 import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.context
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.it
-import org.jetbrains.spek.api.dsl.on
-import kotlin.test.assertEquals
+import org.jetbrains.spek.api.dsl.*
 
 object CalculatorTest : Spek({
     describe("a calculator") {
-
         on("instantiation") {
             it("should not throw up") {
                 Calculator()
             }
         }
 
-        val calculator = Calculator()
+        testCalculator("simple number values") {
+            listOf(0.0, -5.0, 666.0, 38741584.42, -87657265.666)
+                .forEach { it.toString() shouldBe it }
+        }
 
-        context("simple number values") {
-
-            for(number in listOf(0.0, -5.0, 666.0, 38741584.42, -87657265.666)) {
-                val numberAsString = number.toString()
-
-                on("putting in '$numberAsString'") {
-                    val answer = calculator.evaluate(numberAsString)
-
-                    it("should output the number $number") {
-                        assertEquals(number, answer)
-                    }
-                }
-            }
+        testCalculator("addition and subtraction only") {
+            "1+2" shouldBe 3.0
+            "1-2" shouldBe -1.0
+            "1+1+1" shouldBe 3.0
+            "1+2-4+7" shouldBe 6.0
+            "+1+2-4+7" shouldBe 6.0
+            "-4+1+2+7" shouldBe 6.0
         }
     }
 })
-
-
