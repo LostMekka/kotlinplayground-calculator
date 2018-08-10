@@ -4,26 +4,31 @@ buildscript {
     }
 }
 
+// note to future self: if you forgot how that version stuff works,
+// read https://github.com/gradle/gradle/issues/1697
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.2.60'
 }
 
+apply plugin: "org.junit.platform.gradle.plugin"
+
+
 group 'de.lostmekka.kotlinplayground'
 version '1.0.0-SNAPSHOT'
 
+
 repositories {
     mavenCentral()
-    maven { url "http://dl.bintray.com/jetbrains/spek" }
+    maven { url 'http://dl.bintray.com/jetbrains/spek' }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     testCompile 'org.jetbrains.spek:spek-api:1.1.5'
-    testCompile 'org.jetbrains.kotlin:kotlin-test:1.2.60'
+    testCompile 'org.jetbrains.kotlin:kotlin-test'
+    testCompile 'org.jetbrains.kotlin:kotlin-reflect'
     testRuntime 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
 }
-
-apply plugin: 'org.junit.platform.gradle.plugin'
 
 junitPlatform {
     filters {
