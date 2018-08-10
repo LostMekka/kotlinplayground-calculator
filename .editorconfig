@@ -1,0 +1,4 @@
+root = true
+
+[*.kt]
+insert_final_newline = true
