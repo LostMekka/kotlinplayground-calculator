@@ -69,7 +69,7 @@ internal class CalculatorTestBody(
             it("should fail$suffix") {
                 assertNotNull(exception)
             }
-            it("should throw a ${exceptionClass.jvmName}") {
+            it("should throw an instance of ${exceptionClass.simpleName ?: exceptionClass.jvmName}") {
                 assertTrue(exceptionClass.isInstance(exception))
             }
         }
