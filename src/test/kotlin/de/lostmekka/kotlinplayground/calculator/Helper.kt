@@ -64,12 +64,19 @@ internal class CalculatorTestBody(
             } catch (e: Exception) {
                 e
             }
+
             val suffix = if (reason == null) "" else " because $reason"
             it("should fail$suffix") {
                 assertTrue(exception != null, "there was no exception, but expected one")
             }
-            it("should throw an instance of ${exceptionClass.simpleName ?: exceptionClass.jvmName}") {
-                assertTrue(exceptionClass.isInstance(exception), "exception is of wrong type")
+
+            val expectedName = exceptionClass.simpleName ?: exceptionClass.jvmName
+            val actualName = exception?.javaClass?.simpleName ?: "[no class name available]"
+            it("should throw an instance of $expectedName") {
+                assertTrue(
+                    exceptionClass.isInstance(exception),
+                    "exception is of wrong type. expected $expectedName but got $actualName"
+                )
             }
         }
     }
