@@ -67,10 +67,10 @@ internal class CalculatorTestBody(
             }
             val suffix = if (reason == null) "" else " because $reason"
             it("should fail$suffix") {
-                assertNotNull(exception)
+                assertNotNull(exception, "there was no exception, but expected one")
             }
             it("should throw an instance of ${exceptionClass.simpleName ?: exceptionClass.jvmName}") {
-                assertTrue(exceptionClass.isInstance(exception))
+                assertTrue(exceptionClass.isInstance(exception), "exception is of wrong type")
             }
         }
     }
