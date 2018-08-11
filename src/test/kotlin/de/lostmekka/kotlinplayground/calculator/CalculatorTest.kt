@@ -20,6 +20,16 @@ object CalculatorTest : Spek({
                 .forEach { it.toString() shouldBe it }
         }
 
+        testCalculator("ignoring whitespaces") {
+            repeat(3) {prefixSize->
+                val prefix = " ".repeat(prefixSize)
+                repeat(3) {suffixSize->
+                    val suffix = " ".repeat(suffixSize)
+                    "${prefix}666$suffix" shouldBe 666
+                }
+            }
+        }
+
         testCalculator("addition and subtraction only") {
             "1+2" shouldBe 3
             "1-2" shouldBe -1
