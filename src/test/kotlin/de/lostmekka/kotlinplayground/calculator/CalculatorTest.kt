@@ -75,5 +75,46 @@ object CalculatorTest : Spek({
             "20/4*3 + 4*4 - 4/-2 - 1" shouldBe 42
             "-2.5*4 - 2 + 100/2/5 + 44" shouldBe 42
         }
+
+        testCalculator("grouping with parentheses") {
+            var grouped42 = "42"
+            repeat(10) {
+                grouped42 shouldBe 42
+                grouped42 = "($grouped42)"
+            }
+
+            " 1 + 2 + 3 " shouldBe 6
+            "(1)+ 2 + 3 " shouldBe 6
+            " 1 +(2)+ 3 " shouldBe 6
+            "(1)+(2)+ 3 " shouldBe 6
+            " 1 + 2 +(3)" shouldBe 6
+            "(1)+ 2 +(3)" shouldBe 6
+            " 1 +(2)+(3)" shouldBe 6
+            "(1)+(2)+(3)" shouldBe 6
+
+            "(1 + 2)+ 3 " shouldBe 6
+            "(1 + 2)+(3)" shouldBe 6
+            " 1 +(2 + 3)" shouldBe 6
+            "(1)+(2 + 3)" shouldBe 6
+
+            "(1 + 2 + 3)" shouldBe 6
+
+            " 1 + 2 * 3 " shouldBe 7
+            " 1 +(2 * 3)" shouldBe 7
+            "(1 + 2)* 3 " shouldBe 9
+            "  1 -(2 * 3)" shouldBe -6
+            "-(1 + 2)* 3 " shouldBe -9
+
+            "42 / (-4+2-1+3)" shouldFailWith EvaluateException::class because "it is a division by zero"
+
+            "()" shouldFailWith ParseException::class because "empty parenthesis are not allowed"
+
+            " 1 + 3)" shouldFailWith ParseException::class because "there is a opening parenthesis missing"
+            ")1 + 3 " shouldFailWith ParseException::class because "there is a opening parenthesis missing"
+            "(1 + 3 " shouldFailWith ParseException::class because "there is a closing parenthesis missing"
+            " 1 + 3(" shouldFailWith ParseException::class because "there is a closing parenthesis missing"
+
+            " 1)+(3 " shouldFailWith ParseException::class because "the parenthesis do not connect"
+        }
     }
 })
