@@ -38,11 +38,41 @@ You need to implement the method marked with `TODO` in the
 It is highly recommended that your implementation spreads over many classes and files, 
 so you can divide and conquer this training exercise.
 
-# Contributing to this repo
-If you have any change that would be nice to have in this repo, you can implement it in your fork and start a pull request.
+The calculator receives a String and is required to produce an answer of type Double.
+This generally requires two steps:
+(
+Although you could also do this in one swoop if you like. 
+The separation of the two steps however is a good way to not block you from extending the program later on.
+)
+1. Parse the String to some internal data structure.
+   This will most likely be a syntax tree, where simple numbers are represented by the leaves
+   and all sorts of operations are represented by nodes.
+1. Evaluate the built data structure.
+   This would go through the tree and reduce it to one number that is the result of the whole formula.
 
-Please note that no solution implementation is allowed in this repo, so if you also implement the calculator,
-do it in your `solution/<your_name>` branch and only start pull requests for the `master` branch.
+If you don't know where to begin, try tackling the problem in this suggested order:
+1. Make the calculator accept simple numbers. 
+   `String::toDouble` or `String::toDoubleOrNull` are your best friends there.
+1. Add the functionality to ignore whitespaces.
+1. Implement addition and subtraction support. 
+   Keep in mind that invalid formulas should produce a `ParseException`.
+1. Implement multiplication and division support. 
+   Keep in mind that divisions by zero should produce an `EvaluateException`.
+1. Add support for grouping subformulas with parenthesis.
+
+Note, that each successive step might require you to refactor your earlier solution.
+This is totally expected and you should not shy away from that.
+In production code, constant refactoring is frowned upon, because it takes too much time and makes APIs unreliable.
+But in these exercise projects, you should refactor all you can!
+This will give you a feeling for how much foresight you will need in production code to stay productive.
+
+## Contributing to this repo
+If you have any change that would be nice to have in this repo, 
+you can implement it in your fork and start a pull request.
+
+Please note that no solution implementation is allowed in this repo.
+If you also implement the calculator, do it in your `solution/<your_name>` branch
+and only start pull requests for the `master` branch.
 
 Also note, that I try to have a bit of backwards compatibility. 
 Pull requests that are reasonable, but change the calculator specification, need to be handled with extra care.
