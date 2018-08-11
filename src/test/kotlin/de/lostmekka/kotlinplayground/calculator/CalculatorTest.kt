@@ -25,9 +25,9 @@ object CalculatorTest : Spek({
             "1-2" shouldBe -1
             "1+1+1" shouldBe 3
             "1+2-4+7" shouldBe 6
-            "+1+2-4+7" shouldBe 6
             "-4+1+2+7" shouldBe 6
 
+            "+1+2-4+7" shouldFailWith ParseException::class because "there is a leading + operator"
             "-4+1+2+7+" shouldFailWith ParseException::class because "there is a trailing + operator"
             "-4+1+2+7-" shouldFailWith ParseException::class because "there is a trailing - operator"
         }
