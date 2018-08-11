@@ -47,6 +47,9 @@ object CalculatorTest : Spek({
             "2*3.5" shouldBe 7
             "9/2" shouldBe 4.5
             "2*2/3*3/4" shouldBe 1
+            "-2*2/3*3/4" shouldBe -1
+            "2*2/3*-3/4" shouldBe -1
+            "2*2/3*3/-4" shouldBe -1
 
             "*7*3*2" shouldFailWith ParseException::class because "there is a leading * operator"
             "/7*3*2" shouldFailWith ParseException::class because "there is a leading / operator"
