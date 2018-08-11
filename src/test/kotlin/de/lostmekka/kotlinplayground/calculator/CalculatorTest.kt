@@ -18,12 +18,18 @@ object CalculatorTest : Spek({
         testCalculator("simple number values") {
             listOf(0.0, -0.0, -5.0, 666.0, 38741584.42, -87657265.666)
                 .forEach { it.toString() shouldBe it }
+
+            ".666" shouldBe 0.666
+
+            "0..1" shouldFailWith ParseException::class because "there are two decimal points"
+            "0.1." shouldFailWith ParseException::class because "there are two decimal points"
+            ".0.1" shouldFailWith ParseException::class because "there are two decimal points"
         }
 
         testCalculator("ignoring whitespaces") {
-            repeat(3) {prefixSize->
+            repeat(3) { prefixSize ->
                 val prefix = " ".repeat(prefixSize)
-                repeat(3) {suffixSize->
+                repeat(3) { suffixSize ->
                     val suffix = " ".repeat(suffixSize)
                     "${prefix}666$suffix" shouldBe 666
                 }
