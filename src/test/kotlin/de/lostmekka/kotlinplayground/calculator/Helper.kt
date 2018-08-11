@@ -7,7 +7,6 @@ import org.jetbrains.spek.api.dsl.on
 import kotlin.reflect.KClass
 import kotlin.reflect.jvm.jvmName
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 internal fun SpecBody.testCalculator(
@@ -67,7 +66,7 @@ internal class CalculatorTestBody(
             }
             val suffix = if (reason == null) "" else " because $reason"
             it("should fail$suffix") {
-                assertNotNull(exception, "there was no exception, but expected one")
+                assertTrue(exception != null, "there was no exception, but expected one")
             }
             it("should throw an instance of ${exceptionClass.simpleName ?: exceptionClass.jvmName}") {
                 assertTrue(exceptionClass.isInstance(exception), "exception is of wrong type")
