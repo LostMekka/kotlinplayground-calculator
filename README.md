@@ -4,6 +4,12 @@ It is used to learn Kotlin by implementing the calculator logic and making the t
 
 I originally made this for my friends and colleagues, but anyone can use this. Just fork the repo and code away :)
 
+This readme is very extensive,
+so that beginners of Kotlin (or programming in general) have an easier time starting this exercise.
+If you are already experienced in any of the topics covered here,
+feel free to skip over them and start coding right away. :smiley:
+Also mind the [contributing section](#contributing-to-this-repo), if you are into that. :octocat:
+
 ## Getting started
 To start implementing the calculator, you need to:
 1. Fork this repo.
@@ -12,6 +18,9 @@ To start implementing the calculator, you need to:
 1. Implement a part of the calculator. (see section below for details)
 1. Run the tests again and pat yourself on the back for the progress you made.
 1. If there still are failing tests, go to step 4.
+1. When your implementation passes ALL THE TESTS, 
+(sorry for the meme) send me a tweet at @LostMekkaSoft, 
+and we shall celebrate this victory together! 
 
 ## Running the tests
 
