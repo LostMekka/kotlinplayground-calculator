@@ -60,8 +60,10 @@ object CalculatorTest : Spek({
         }
 
         testCalculator("all 4 basic operations") {
+            "1*5+5" shouldBe 10
+            "5/1-5" shouldBe 0
+            "20/4*3 + 4*4 - 4/-2 - 1" shouldBe 42
             "-2.5*4 - 2 + 100/2/5 + 44" shouldBe 42
-            // TODO: don't be lazy and add more test cases
         }
     }
 })
