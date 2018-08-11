@@ -90,3 +90,14 @@ Pull requests that are reasonable, but change the calculator specification, need
 Currently, I am the only one who develops on the `master` branch.
 Therefore I can just commit anything directly to `master`.
 If there is a need for collaboration in the future, I will change the branching model accordingly. 
+
+## Technical details
+The test are Written with [Spek](https://github.com/spekframework/spek).
+This Project differs a bit from normal ones 
+in that there is only one method to test, but there are quite a few test cases for it.
+
+To write more beautiful tests for this specific project, I wrote a small extension to the Spek DSL,
+including the `testCalculator` builder function 
+as well as the infix functions `shouldBe`, `shouldFailWith` and `because`.
+The definition of the DSL extension can be found in 
+[the test helper](src/test/kotlin/de/lostmekka/kotlinplayground/calculator/Helper.kt).
