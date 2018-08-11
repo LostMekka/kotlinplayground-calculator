@@ -2,12 +2,12 @@
 This Kotlin project contains tests for a calculator, but no implementation.
 It is used to learn Kotlin by implementing the calculator logic and making the tests pass.
 
-I originally made this for my friends and colleagues, but anyone can use this. Just fork the repo and code away :)
+I originally made this for my friends and colleagues, but anyone can use this. Just fork the repo and code away :smiley:
 
 This readme is very extensive,
 so that beginners of Kotlin (or programming in general) have an easier time starting this exercise.
 If you are already experienced in any of the topics covered here,
-feel free to skip over them and start coding right away. :smiley:
+feel free to skip over them and start coding right away.
 Also mind the [contributing section](#contributing-to-this-repo), if you are into that. :octocat:
 
 ## Getting started
