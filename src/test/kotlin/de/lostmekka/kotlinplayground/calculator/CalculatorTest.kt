@@ -16,7 +16,7 @@ object CalculatorTest : Spek({
         }
 
         testCalculator("simple number values") {
-            listOf(0.0, -5.0, 666.0, 38741584.42, -87657265.666)
+            listOf(0.0, -0.0, -5.0, 666.0, 38741584.42, -87657265.666)
                 .forEach { it.toString() shouldBe it }
         }
 
