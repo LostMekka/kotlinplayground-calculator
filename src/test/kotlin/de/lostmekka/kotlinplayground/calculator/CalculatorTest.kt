@@ -42,6 +42,16 @@ object CalculatorTest : Spek({
             "-4+1+2+7-" shouldFailWith ParseException::class because "there is a trailing - operator"
         }
 
+        testCalculator("weird negations") {
+            repeat(10) {
+                val n = it + 1
+                val minusSigns = "-".repeat(n)
+                val totalSign = Math.pow(-1.0, n.toDouble())
+                "${minusSigns}1" shouldBe totalSign
+                "0${minusSigns}1" shouldBe totalSign
+            }
+        }
+
         testCalculator("multiplication and division only") {
             "4*4" shouldBe 16
             "2*3.5" shouldBe 7
