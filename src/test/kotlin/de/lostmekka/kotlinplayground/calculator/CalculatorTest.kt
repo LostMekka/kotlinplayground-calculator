@@ -78,7 +78,7 @@ object CalculatorTest : Spek({
         testCalculator("all 4 basic operations") {
             "1*5+5" shouldBe 10
             "5/1-5" shouldBe 0
-            "20/4*3 + 4*4 - 4/-2 - 1" shouldBe 42
+            "20/4*3 + 4*4 - 4/-2 - 1" shouldBe 32
             "-2.5*4 - 2 + 100/2/5 + 44" shouldBe 42
         }
 
@@ -108,7 +108,7 @@ object CalculatorTest : Spek({
             " 1 + 2 * 3 " shouldBe 7
             " 1 +(2 * 3)" shouldBe 7
             "(1 + 2)* 3 " shouldBe 9
-            "  1 -(2 * 3)" shouldBe -6
+            "  1 -(2 * 3)" shouldBe -5
             "-(1 + 2)* 3 " shouldBe -9
 
             "42 / (-4+2-1+3)" shouldFailWith EvaluateException::class because "it is a division by zero"
