@@ -29,13 +29,13 @@ The simplest way to run the tests is to run the command `./gradlew test` in your
 This will display all test results in the console.
 
 ##### From IntelliJ
-If you are using IntelliJ, I strongly recommend the `Spek` Plugin. (https://github.com/raniejade/spek-idea-plugin)
+If you are using IntelliJ, I strongly recommend the [Spek Plugin](https://github.com/raniejade/spek-idea-plugin).
 You can install it directly from within IntelliJ.
 With it, you can run the tests directly from the IDE and get a nice graphical representation of the results.
 
 Simply open the 
 [test source file](src/test/kotlin/de/lostmekka/kotlinplayground/calculator/CalculatorTest.kt)
-in your IntelliJ project and you should see some run icons to the left off the code. 
+in your IntelliJ project and you should see some run icons to the left of the code. 
 Click the topmost of those to start a whole test run.
 
 <image src="readme_resources/run_tests_intellij.png">
