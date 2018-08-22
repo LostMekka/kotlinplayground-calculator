@@ -55,6 +55,7 @@ object CalculatorTest : Spek({
                 val totalSign = Math.pow(-1.0, n.toDouble())
                 "${minusSigns}1" shouldBe totalSign
                 "0${minusSigns}1" shouldBe totalSign
+                "5${minusSigns}2" shouldBe 5 + totalSign * 2
             }
         }
 
